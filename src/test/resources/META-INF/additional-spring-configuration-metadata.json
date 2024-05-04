@@ -1,0 +1,87 @@
+{"properties": [
+  {
+    "name": "spring.jpa.flyway.baseline.on.migrate",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.flyway.baseline.on.migrate'"
+  },
+  {
+    "name": "spring.jpa.flyway.baselineOnMigrate",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.flyway.baselineOnMigrate'"
+  },
+  {
+    "name": "flyway.baseline-on-migrate",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.baseline-on-migrate'"
+  },
+  {
+    "name": "flyway.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.enabled'"
+  },
+  {
+    "name": "flyway.schemas",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.schemas'"
+  },
+  {
+    "name": "flyway.locations",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.locations'"
+  },
+  {
+    "name": "flyway.placeholders.history-table",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.placeholders.history-table'"
+  },
+  {
+    "name": "flyway.placeholders.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.placeholders.enabled'"
+  },
+  {
+    "name": "flyway.placeholders.schemas",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.placeholders.schemas'"
+  },
+  {
+    "name": "flyway.placeholders.locations",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway.placeholders.locations'"
+  },
+  {
+    "name": "spring.security.jwt",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.jwt'"
+  },
+  {
+    "name": "spring.security.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.secret'"
+  },
+  {
+    "name": "spring.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.expiration'"
+  },
+  {
+    "name": "spring.security.token",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.token'"
+  },
+  {
+    "name": "spring.security.secret-key",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.secret-key'"
+  },
+  {
+    "name": "spring.security.expire-length",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.expire-length'"
+  },
+  {
+    "name": "spring.security.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.expiration'"
+  }
+]}
