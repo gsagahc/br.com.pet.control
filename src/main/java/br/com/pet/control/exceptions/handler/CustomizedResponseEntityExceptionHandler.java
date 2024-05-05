@@ -1,8 +1,8 @@
-package br.com.pet.control.exception.handler;
+package br.com.pet.control.exceptions.handler;
 
-import br.com.pet.control.exception.ExceptionResponse;
-import br.com.pet.control.exception.ResourceNotFoundException;
-import br.com.pet.control.exception.UserNotFoundException;
+import br.com.pet.control.exceptions.ExceptionResponse;
+import br.com.pet.control.exceptions.ResourceNotFoundException;
+import br.com.pet.control.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-
 import java.util.Date;
+
+
 
 
 @ControllerAdvice
@@ -30,7 +31,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+
 	@ExceptionHandler(UserNotFoundException.class)
 	public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(
 			Exception ex, WebRequest request) {

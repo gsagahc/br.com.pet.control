@@ -1,4 +1,4 @@
-package br.com.pet.control.exception;
+package br.com.pet.control.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,4 +1,4 @@
-package br.com.pet.control.exception;
+package br.com.pet.control.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;

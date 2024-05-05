@@ -1,7 +1,7 @@
 package br.com.pet.control.services;
 
 import br.com.pet.control.Application;
-import br.com.pet.control.exception.ResourceNotFoundException;
+import br.com.pet.control.exceptions.ResourceNotFoundException;
 import br.com.pet.control.model.PetEntity;
 import br.com.pet.control.repository.PetRepository;
 import org.slf4j.Logger;
@@ -24,6 +24,8 @@ public class PetServices {
    public List<PetEntity> findAll() {
 	    logger.info("Showing all pets!");
 		return petRepository.findAll();
+
+
 
    	
    }
@@ -51,7 +53,7 @@ public class PetServices {
   
 	public PetEntity findByid(Long id) {
     	logger.info("Finding one pet!"+id);
-     	//return petRepository.findById(id);
+
 		return petRepository.findById(id)
 				.orElseThrow(()->new ResourceNotFoundException("Not records for ths id:"+id));
 

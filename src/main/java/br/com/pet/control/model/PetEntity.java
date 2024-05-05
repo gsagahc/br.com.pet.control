@@ -5,6 +5,8 @@ package br.com.pet.control.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,24 +16,31 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="pet_cad")
+@JsonPropertyOrder({"id", "petName","petBreed","petKind","gender","petOwner","address","phoneNumber","email"})
 public class PetEntity implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="pet_name", nullable = false, length=80)
+	@JsonProperty("Pet name")
 	private String petName;
 	@Column(name="pet_breed", nullable = false, length=50)
+	@JsonProperty("Pet breed")
 	private String petBreed;
 	@Column(name="pet_kind", nullable =  false, length=50)
+	@JsonProperty("Pet kind")
 	private String petKind;
 	@Column( nullable = false)
+	@JsonProperty("Pet gender")
 	private String gender;
 	@Column(name="pet_owner", nullable = false, length=80)
+	@JsonProperty("Pet owner")
 	private String petOwner;
 	@Column( nullable = false, length=100)
 	private String address;
 	@Column(name="phone_number")
+	@JsonProperty("phone number")
 	private String phoneNumber;
 	@Column
 	private String email;
