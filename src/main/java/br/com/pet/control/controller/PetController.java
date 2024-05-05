@@ -33,6 +33,7 @@ public class PetController {
 			produces= MediaType.APPLICATION_JSON_VALUE)
 	public PetEntity findByid(@PathVariable(value = "id") Long id)
 	{
+
 		return service.findByid(id);
 	}
 	@PostMapping(produces= MediaType.APPLICATION_JSON_VALUE,

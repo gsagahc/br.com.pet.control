@@ -1,17 +1,15 @@
 package br.com.pet.control.services;
 
-import java.util.List;
-import java.util.Optional;
-
+import br.com.pet.control.Application;
+import br.com.pet.control.exception.ResourceNotFoundException;
+import br.com.pet.control.model.PetEntity;
+import br.com.pet.control.repository.PetRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.pet.control.Application;
-import br.com.pet.control.exception.ResourceNotFoundException;
-import br.com.pet.control.model.PetEntity;
-import br.com.pet.control.repository.PetRepository;
+import java.util.List;
 
 
 
@@ -38,7 +36,7 @@ public class PetServices {
     public PetEntity update(PetEntity pet) {
     	logger.info("Updating one pet! id:"+pet.getId()+" Name:"+pet.getPetName());
     	PetEntity entity = petRepository.findById(pet.getId())
-     			.orElseThrow(()->new ResourceNotFoundException("Not records for ths id"));
+     			.orElseThrow(()->new ResourceNotFoundException("Not records for ths id:"+pet.getId()));
     	entity.setPetName(pet.getPetName());
     	entity.setPetBreed(pet.getPetBreed());
     	entity.setPetKind(pet.getPetKind());
@@ -55,15 +53,14 @@ public class PetServices {
     	logger.info("Finding one pet!"+id);
      	//return petRepository.findById(id);
 		return petRepository.findById(id)
-				.orElseThrow(()->new ResourceNotFoundException("Not records for ths id"));
+				.orElseThrow(()->new ResourceNotFoundException("Not records for ths id:"+id));
 
     }
 	public void delete(Long id) {
-		logger.info("Deleting one pet, id:"+ id);
-		Optional<PetEntity> entity = petRepository.findById(id);
-         if (entity.isEmpty()){
-			logger.info("No record for this pet id:"+ id);
-		}else
-     		 petRepository.delete(entity.get());
+		logger.info("Deleting one pet, id:" + id);
+		PetEntity entity = petRepository.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Not records for ths id:"+id));
+		 petRepository.delete(entity);
+
 	}
 }
