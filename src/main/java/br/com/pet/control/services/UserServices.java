@@ -4,7 +4,6 @@ import br.com.pet.control.Application;
 import br.com.pet.control.controller.dto.RegisterDTO;
 import br.com.pet.control.model.UserEntity;
 import br.com.pet.control.repository.UserRepository;
-import com.google.common.util.concurrent.ExecutionError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +35,13 @@ public class UserServices {
 	      UserEntity newUser = new UserEntity(data, encryptedPassword );
 	      userRepository.save(newUser);
 	      return true;
-	   }catch (ExecutionError e){
+	   }catch (Exception e){
 		 logger.info(e.toString());
-		  return false;  
+		  return false;
 	   }
-	   
-	  
-	   
+
+
+
    }
    
   

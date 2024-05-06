@@ -5,10 +5,17 @@ import br.com.pet.control.controller.dto.AuthenticationDTO;
 import br.com.pet.control.controller.dto.LoginResponseDTO;
 import br.com.pet.control.controller.dto.RegisterDTO;
 import br.com.pet.control.logger.LogExecutionTime;
+import br.com.pet.control.model.PetEntity;
 import br.com.pet.control.model.UserEntity;
 import br.com.pet.control.repository.UserRepository;
 import br.com.pet.control.security.TokenService;
 import br.com.pet.control.services.UserServices;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("auth")
-
+@Tag(name="Security", description="End points for managing security")
 public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -35,6 +42,19 @@ public class AuthenticationController {
 	
     @LogExecutionTime
     @PostMapping("/login")
+    @Operation(summary = "Loggin on this application", description= "Loggin on this application",
+
+            responses = {
+                    @ApiResponse(description ="Success", responseCode = "200", content = {@Content(
+                            mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema( implementation = PetEntity.class))
+                    )
+
+                    }),
+                    @ApiResponse(description ="Forbiden", responseCode = "403", content = @Content),
+                    @ApiResponse(description ="Bad Request", responseCode = "400", content = @Content),
+                    @ApiResponse(description ="Internal server error", responseCode = "500", content = @Content)
+            })
     public ResponseEntity<LoginResponseDTO> login(@RequestBody  AuthenticationDTO data){
     	
     	  var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
@@ -46,6 +66,19 @@ public class AuthenticationController {
 		
     @LogExecutionTime
     @PostMapping("/register")
+    @Operation(summary = "Register a new user for this application", description= "Register a new user for this application",
+
+            responses = {
+                    @ApiResponse(description ="Success", responseCode = "200", content = {@Content(
+                            mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema( implementation = PetEntity.class))
+                    )
+
+                    }),
+                    @ApiResponse(description ="Forbiden", responseCode = "403", content = @Content),
+                    @ApiResponse(description ="Bad Request", responseCode = "400", content = @Content),
+                    @ApiResponse(description ="Internal server error", responseCode = "500", content = @Content)
+            })
     public ResponseEntity<String> register(@RequestBody @Valid RegisterDTO data){
        if (service.findByLogin(data.login())) {
     		
