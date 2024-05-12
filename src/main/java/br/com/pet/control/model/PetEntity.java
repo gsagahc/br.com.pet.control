@@ -23,24 +23,24 @@ public class PetEntity implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(name="pet_name", nullable = false, length=80)
-	@JsonProperty("Pet name")
+	@JsonProperty("Pet_name")
 	private String petName;
 	@Column(name="pet_breed", nullable = false, length=50)
-	@JsonProperty("Pet breed")
+	@JsonProperty("Pet_breed")
 	private String petBreed;
 	@Column(name="pet_kind", nullable =  false, length=50)
-	@JsonProperty("Pet kind")
+	@JsonProperty("Pet_kind")
 	private String petKind;
 	@Column( nullable = false)
-	@JsonProperty("Pet gender")
+	@JsonProperty("Pet_gender")
 	private String gender;
 	@Column(name="pet_owner", nullable = false, length=80)
-	@JsonProperty("Pet owner")
+	@JsonProperty("Pet_owner")
 	private String petOwner;
 	@Column( nullable = false, length=100)
 	private String address;
 	@Column(name="phone_number")
-	@JsonProperty("phone number")
+	@JsonProperty("phone_number")
 	private String phoneNumber;
 	@Column
 	private String email;
